@@ -1,0 +1,21 @@
+sudo: false
+language: node_js
+node_js:
+  - 8
+  - 9
+  - 10
+  - stable
+
+cache:
+  bundle: true
+  directories:
+    - node_modules
+
+#install:
+# - npm install
+
+script:
+  - npm test -- --coverage
+after_script:
+  - npm install codecov --no-save
+  - codecov --token=$CODECOV_TOKEN
