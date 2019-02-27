@@ -42,13 +42,13 @@ describe('remarkHeadingId', function() {
       .use(html).processSync(`
 # cus \`head1\` {#idd-id}
 ## cus **head2** {#idd id}
-## cus ~~head2~~ {#idd id} 
+## cus ~~head2~~  {#idd id} 
       `)
 
     expect(contents).toMatchInlineSnapshot(`
 "<h1 id=\\"idd-id\\">cus <code>head1</code></h1>
 <h2 id=\\"idd id\\">cus <strong>head2</strong></h2>
-<h2 id=\\"idd id\\">cus <del>head2</del></h2>
+<h2 id=\\"idd id\\">cus <del>head2</del> </h2>
 <pre><code>  
 </code></pre>"
 `)

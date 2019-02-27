@@ -9,7 +9,7 @@ module.exports = function() {
   return function(node) {
     visit(node, 'heading', node => {
       let lastChild = node.children[node.children.length - 1]
-      if (lastChild.type === 'text') {
+      if (lastChild && lastChild.type === 'text') {
         let string = lastChild.value.replace(/ +$/, '')
         let matched = string.match(/ {#([^]+?)}$/)
 
