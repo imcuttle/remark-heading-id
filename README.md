@@ -7,18 +7,30 @@
 [![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://prettier.io/)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square)](https://conventionalcommits.org)
 
-> The remark plugin for supporting [custom heading id](https://www.markdownguide.org/extended-syntax/#heading-ids)
+> The remark plugin for supporting [custom heading id](https://www.markdownguide.org/extended-syntax/#heading-ids) and Default Id
 
-### Input
+### Custom Heading Input
 
 ```markdown
 ### My Great Heading {#custom-id}
 ```
 
-### Output
+### Custom Heading Output
 
 ```html
 <h3 id="custom-id">My Great Heading</h3>
+```
+
+### Default Heading Input
+
+```markdown
+### My Great Heading
+```
+
+### Default Heading Output
+
+```html
+<h3 id="my-great-heading">My Great Heading</h3>
 ```
 
 ## Contributing
