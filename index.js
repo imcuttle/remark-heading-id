@@ -6,7 +6,7 @@
 const visit = require('unist-util-visit')
 const { setNodeId, getDefaultId } = require('./util')
 
-module.exports = function(options = { defaults: true }) {
+module.exports = function(options = { defaults: false }) {
   return function(node) {
     visit(node, 'heading', node => {
       let lastChild = node.children[node.children.length - 1]

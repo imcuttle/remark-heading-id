@@ -17,14 +17,12 @@ describe('remarkHeadingId', function() {
       })
       .use(remarkHeadingId)
       .use(stringify)
-      .use(html).processSync(`# head
-# cus head1 {#idd-id}
+      .use(html).processSync(`# cus head1 {#idd-id}
 # cus head2 {#idd id}
 # cus head3 {#中文 id}`)
 
     expect(contents).toMatchInlineSnapshot(`
-"<h1 id=\\"head\\">head</h1>
-<h1 id=\\"idd-id\\">cus head1</h1>
+"<h1 id=\\"idd-id\\">cus head1</h1>
 <h1 id=\\"idd id\\">cus head2</h1>
 <h1 id=\\"中文 id\\">cus head3</h1>"
 `)
@@ -41,23 +39,35 @@ describe('remarkHeadingId', function() {
       .forEach((value, key) => expect(formatDefaultId(key)).toBe(value))
   })
 
-  it('defaults option can disable defaults', function() {
+  it('defaults option off by default', function() {
     let { contents } = remark()
       .data('settings', {
         position: false
       })
-      .use(remarkHeadingId, { defaults: false })
+      .use(remarkHeadingId)
       .use(stringify)
       .use(html).processSync(`# head
-# cus head1 {#idd-id}
-# cus head2 {#idd id}
-# cus head3 {#中文 id}`)
+# cus head1 {#idd-id}`)
 
     expect(contents).toMatchInlineSnapshot(`
 "<h1>head</h1>
-<h1 id=\\"idd-id\\">cus head1</h1>
-<h1 id=\\"idd id\\">cus head2</h1>
-<h1 id=\\"中文 id\\">cus head3</h1>"
+<h1 id=\\"idd-id\\">cus head1</h1>"
+`)
+  })
+
+  it('defaults option', function() {
+    let { contents } = remark()
+      .data('settings', {
+        position: false
+      })
+      .use(remarkHeadingId, { defaults: true })
+      .use(stringify)
+      .use(html).processSync(`# head
+# cus head1 {#idd-id}`)
+
+    expect(contents).toMatchInlineSnapshot(`
+"<h1 id=\\"head\\">head</h1>
+<h1 id=\\"idd-id\\">cus head1</h1>"
 `)
   })
 
@@ -66,7 +76,7 @@ describe('remarkHeadingId', function() {
       .data('settings', {
         position: false
       })
-      .use(remarkHeadingId)
+      .use(remarkHeadingId, { defaults: true })
       .use(stringify)
       .use(html).processSync(`
 # head \`heada\`

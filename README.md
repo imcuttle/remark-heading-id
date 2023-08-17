@@ -21,18 +21,6 @@
 <h3 id="custom-id">My Great Heading</h3>
 ```
 
-### Default Heading Input
-
-```markdown
-### My Great Heading
-```
-
-### Default Heading Output
-
-```html
-<h3 id="my-great-heading">My Great Heading</h3>
-```
-
 ### API
 
 This package exports no identifiers. The default export is `remarkHeaderId`.
@@ -45,7 +33,19 @@ Configuration (optional).
 
 #### options.defaults
 
-Whether to add default titles based on the title text (boolean, default: true).
+Whether to add default titles based on the title text (boolean, default: false).
+
+##### Default Heading Input
+
+```markdown
+### My Great Heading
+```
+
+##### Default Heading Output
+
+```html
+<h3 id="my-great-heading">My Great Heading</h3>
+```
 
 ## Contributing
 
