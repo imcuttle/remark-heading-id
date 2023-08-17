@@ -33,6 +33,20 @@
 <h3 id="my-great-heading">My Great Heading</h3>
 ```
 
+### API
+
+This package exports no identifiers. The default export is `remarkHeaderId`.
+
+`unified().use(remarkHeadingId[, options])`
+
+#### options
+
+Configuration (optional).
+
+#### options.defaults
+
+Whether to add default titles based on the title text (boolean, default: true).
+
 ## Contributing
 
 - Fork it!
