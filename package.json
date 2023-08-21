@@ -1,6 +1,6 @@
 {
   "name": "remark-heading-id",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "description": "The remark plugin for supporting custom heading id also including default id",
   "author": "imcuttle <moyuyc95@gmail.com>",
