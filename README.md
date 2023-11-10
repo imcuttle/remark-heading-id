@@ -33,7 +33,46 @@ Configuration (optional).
 
 #### options.defaults
 
-Whether to add default titles based on the title text (boolean, default: false).
+Whether to add default ids based on the title text (boolean, default: false).
+
+#### options.uniqueDefaults
+
+Whether to ensure that the default ids created by options.defaults are unique (boolean, default: true).
+Only relevant when options.defaults = true.
+Example:
+
+```markdown
+## heading
+### indroduction
+### argument
+## heading
+### introduction
+### argument
+```
+
+Will generate this output when options.defaults = true and options.uniqueDefaults = true:
+
+```html
+<h2 id="heading">heading</h2>
+<h3 id="indroduction">indroduction</h3>
+<h3 id="argument">argument</h3>
+<h2 id="heading-1">heading</h2>
+<h3 id="introduction-1">introduction</h3>
+<h3 id="argument-1">argument</h3>
+```
+
+Instead of this output, which is generated when options.defaults = true and options.uniqueDefaults = false:
+
+```html
+<h2 id="heading">heading</h2>
+<h3 id="indroduction">indroduction</h3>
+<h3 id="argument">argument</h3>
+<h2 id="heading">heading</h2>
+<h3 id="introduction">introduction</h3>
+<h3 id="argument">argument</h3>
+```
+
+The difference being that the last output contains duplicate ids in the generated html, which are avoided using options.uniqueDefaults = true.
 
 ##### Default Heading Input
 
