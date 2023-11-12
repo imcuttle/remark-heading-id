@@ -33,7 +33,7 @@ module.exports = function(options = { defaults: false, uniqueDefaults: true }) {
         // If no custom id was found, use default instead
         let defaultIdCandidate = getDefaultId(node.children);
         if (options.uniqueDefaults) {
-          if (uniqueDefaultIdsCounters?.[defaultIdCandidate] === undefined) {
+          if (uniqueDefaultIdsCounters[defaultIdCandidate] === undefined) {
             // First time this default id is used: initialize counter
             uniqueDefaultIdsCounters[defaultIdCandidate] = 0;
           } else {
