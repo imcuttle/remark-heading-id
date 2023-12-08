@@ -7,7 +7,8 @@
 [![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://prettier.io/)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square)](https://conventionalcommits.org)
 
-> The remark plugin for supporting [custom heading id](https://www.markdownguide.org/extended-syntax/#heading-ids) and Default Id
+> The remark plugin for supporting [custom heading id](https://www.markdownguide.org/extended-syntax/#heading-ids) and
+> Default Id
 
 ### Custom Heading Input
 
@@ -43,10 +44,15 @@ Example:
 
 ```markdown
 ## heading
-### indroduction
-### argument
-## heading
+
 ### introduction
+
+### argument
+
+## heading
+
+### introduction
+
 ### argument
 ```
 
@@ -72,7 +78,8 @@ Instead of this output, which is generated when options.defaults = true and opti
 <h3 id="argument">argument</h3>
 ```
 
-The difference being that the last output contains duplicate ids in the generated html, which are avoided using options.uniqueDefaults = true.
+The difference being that the last output contains duplicate ids in the generated html, which are avoided using
+options.uniqueDefaults = true.
 
 ##### Default Heading Input
 

@@ -71,6 +71,29 @@ describe('remarkHeadingId', function() {
 `)
   })
 
+  it('defaults with uniqueDefaults should generate distinct ids', function() {
+    let { contents } = remark()
+      .data('settings', {
+        position: false
+      })
+      .use(remarkHeadingId, { defaults: true, uniqueDefaults: true })
+      .use(stringify)
+      .use(html).processSync(` ## heading
+### introduction
+### argument
+## heading
+### introduction
+### argument`)
+    expect(contents).toMatchInlineSnapshot(`
+"<h2 id=\\"heading\\">heading</h2>
+<h3 id=\\"introduction\\">introduction</h3>
+<h3 id=\\"argument\\">argument</h3>
+<h2 id=\\"heading-1\\">heading</h2>
+<h3 id=\\"introduction-1\\">introduction</h3>
+<h3 id=\\"argument-1\\">argument</h3>"
+`)
+  })
+
   it('should parse well which contains inline syntax', function() {
     let { contents } = remark()
       .data('settings', {
