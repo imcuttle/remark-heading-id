@@ -19,7 +19,7 @@ const getDefaultId = children => {
 }
 
 const formatDefaultId = value => {
-  return _.kebabCase(value.replaceAll(/\\s+/g, ' ').trim())
+  return _.kebabCase(value.replace(/\\s+/g, ' ').trim())
 }
 
 const setNodeId = (node, id) => {
